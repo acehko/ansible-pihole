@@ -6,10 +6,17 @@ services:
   default:
     image: "{{ image }}"
     restart: unless-stopped
+    {% if host %}
     network_mode: host
+    {% endif %}
+    network_mode: host
+    ports:
+      - 53:53/tcp
+      - 53:53/udp
+      - 67:67/udp
+      - 80:80/tcp
+      - 443:443/tcp
     environment:
-      ServerIP: "{{ ip | mandatory }}"
-      VIRTUAL_HOST: "{{ hostname }}"
       {% for key, value in env.items() %}
       {{ key }}: "{{ value }}"
       {% endfor %}

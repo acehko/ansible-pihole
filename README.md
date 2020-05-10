@@ -11,14 +11,13 @@ Ansible role for running Pi-hole on docker.
 - Docker Python package
 
 ## Variables
-| Variable         | Default                       | Description                                                                                                                    |
-|:-----------------|:------------------------------|:-------------------------------------------------------------------------------------------------------------------------------|
-| **project_dir**  | `/etc/docker/projects/pihole` | The directory where the docker compose file will be copied.                                                                    |
-| **project_name** | `pihole`                      | The docker compose project name. Docker containers, volumes and networks will be prefixed with this value.                     |
-| **image**        | `pihole/pihole:v4.4`          | Pi-hole docker image. If changed the role may not work correctly.                                                              |
-| **ip**           |                               | **Required**. Pi-hole ip address.                                                                                              |
-| **hostname**     | `pi.hole`                     | Pi-hole hostname.                                                                                                              |
-| **env**          |                               | Environment variables for the Pi-hole container. `ServerIP` and `VIRTUAL_HOST` are set with the `ip` and `hostname` variables. |
+| Variable         | Default                       | Description                                                                                                |
+|:-----------------|:------------------------------|:-----------------------------------------------------------------------------------------------------------|
+| **project_dir**  | `/etc/docker/projects/pihole` | The directory where the docker compose file will be copied.                                                |
+| **project_name** | `pihole`                      | The docker compose project name. Docker containers, volumes and networks will be prefixed with this value. |
+| **image**        | `pihole/pihole:v4.4`          | Pi-hole docker image. If changed the role may not work correctly.                                          |
+| **host**         | `false`                       | Whether to run the container with `network_mode=host`.                                                     |
+| **env**          |                               | Environment variables for the Pi-hole container.                                                           |
 
 ## Dependencies
 None.
@@ -28,13 +27,15 @@ None.
 - hosts: all
   roles:
     - role: acehko.pihole
-      ip: 192.168.0.123
-      hostname: pihole.local
+      host: true
       env:
         TZ: Europe/Zagreb
         WEBPASSWORD: changeme
         DNS1: 1.1.1.1
         DNS2: 1.0.0.1
+        ServerIP: 192.168.0.123
+        VIRTUAL_HOST: pi.hole
+        INTERFACE=eth0
 ```
 
 ## License

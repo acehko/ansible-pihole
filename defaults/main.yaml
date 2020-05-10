@@ -9,11 +9,8 @@ project_name: pihole
 # Pi-hole docker image. If changed the role may not work correctly.
 image: pihole/pihole:v4.4
 
-# Pi-hole ip address. Required.
-ip:
-
-# Pi-hole hostname.
-hostname: pi.hole
+# Whether to run the container with network_mode=host.
+host: false
 
 # Environment variables for the Pi-hole container.
 # ServerIP and VIRTUAL_HOST are set with the ip and hostname variables.
