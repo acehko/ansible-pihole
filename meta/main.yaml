@@ -1,0 +1,17 @@
+galaxy_info:
+  role_name: pihole
+  author: Andrija Čehko
+  description: Ansible role for running Pi-hole on docker.
+  company:
+  issue_tracker_url: https://github.com/acehko/ansible-pihole/issues
+  license: license (MIT)
+  min_ansible_version: 2.9
+  platforms: []
+  galaxy_tags:
+    - pihole
+    - adblocker
+    - dhcp
+    - dns
+    - docker
+
+dependencies: []

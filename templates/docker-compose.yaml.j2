@@ -1,0 +1,27 @@
+#jinja2: lstrip_blocks: True
+---
+version: "3"
+
+services:
+  default:
+    image: "{{ image }}"
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      ServerIP: "{{ ip | mandatory }}"
+      VIRTUAL_HOST: "{{ hostname }}"
+      {% for key, value in env.items() %}
+      {{ key }}: "{{ value }}"
+      {% endfor %}
+    volumes:
+      - default:/etc/pihole/
+      - dnsmasq:/etc/dnsmasq.d/
+    dns:
+      - 127.0.0.1
+      - "{{ env.DNS1 | default('1.1.1.1') }}"
+    cap_add:
+      - NET_ADMIN
+
+volumes:
+  default:
+  dnsmasq:

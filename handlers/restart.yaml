@@ -1,0 +1,7 @@
+---
+- name: Restart Pi-hole
+  become: true
+  docker_compose:
+    project_src: "{{ project_dir }}"
+    project_name: "{{ project_name }}"
+    state: restarted

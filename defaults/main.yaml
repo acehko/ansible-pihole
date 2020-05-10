@@ -1,0 +1,20 @@
+---
+# The directory where the docker compose file will be copied.
+project_dir: /etc/docker/projects/pihole
+
+# The docker compose project name.
+# Docker containers, volumes and networks will be prefixed with this value.
+project_name: pihole
+
+# Pi-hole docker image. If changed the role may not work correctly.
+image: pihole/pihole:v4.4
+
+# Pi-hole ip address. Required.
+ip:
+
+# Pi-hole hostname.
+hostname: pi.hole
+
+# Environment variables for the Pi-hole container.
+# ServerIP and VIRTUAL_HOST are set with the ip and hostname variables.
+env:

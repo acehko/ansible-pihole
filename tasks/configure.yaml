@@ -1,0 +1,12 @@
+---
+- name: Create Pi-hole project directory
+  become: true
+  file:
+    path: "{{ project_dir }}"
+    state: directory
+
+- name: Copy Pi-hole project files
+  become: true
+  template:
+    src: docker-compose.yaml.j2
+    dest: "{{ project_dir }}/docker-compose.yaml"

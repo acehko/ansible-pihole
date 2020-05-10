@@ -1,0 +1,4 @@
+---
+- name: Deploy Pi-hole
+  shell: /bin/true
+  notify: Start Pi-hole

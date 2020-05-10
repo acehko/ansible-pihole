@@ -1,0 +1,3 @@
+---
+- import_tasks: configure.yaml
+- import_tasks: deploy.yaml
