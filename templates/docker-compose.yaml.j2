@@ -4,30 +4,29 @@ version: "3"
 
 services:
   default:
-    image: "{{ pihole_image }}"
+    image: {{ pihole_image }}
     restart: unless-stopped
     {% if pihole_host_mode %}
     network_mode: host
     {% endif %}
-    network_mode: host
     ports:
       - 53:53/tcp
       - 53:53/udp
       - 67:67/udp
       - 80:80/tcp
       - 443:443/tcp
+    {% if pihole_env is defined %}
     environment:
       {% for key, value in pihole_env.items() %}
       {{ key }}: "{{ value }}"
       {% endfor %}
+    {% endif %}
     volumes:
       - default:/etc/pihole/
       - dnsmasq:/etc/dnsmasq.d/
     dns:
       - 127.0.0.1
-    {% if pihole_env.DNS1 %}
-      - {{ pihole_env.DNS1 }}
-    {% endif %}
+      - {{ pihole_env.DNS1 | default('1.1.1.1') }}
     cap_add:
       - NET_ADMIN
 
