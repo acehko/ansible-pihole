@@ -2,6 +2,6 @@
 - name: Remove Pi-hole
   become: true
   docker_compose:
-    project_src: "{{ project_dir }}"
-    project_name: "{{ project_name }}"
+    project_src: "{{ pihole_dir }}"
+    project_name: "{{ pihole_name }}"
     state: absent

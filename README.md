@@ -11,13 +11,13 @@ Ansible role for running Pi-hole on docker.
 - Docker Python package
 
 ## Variables
-| Variable         | Default                       | Description                                                                                                |
-|:-----------------|:------------------------------|:-----------------------------------------------------------------------------------------------------------|
-| **project_dir**  | `/etc/docker/projects/pihole` | The directory where the docker compose file will be copied.                                                |
-| **project_name** | `pihole`                      | The docker compose project name. Docker containers, volumes and networks will be prefixed with this value. |
-| **image**        | `pihole/pihole:v4.4`          | Pi-hole docker image. If changed the role may not work correctly.                                          |
-| **host**         | `false`                       | Whether to run the container with `network_mode=host`.                                                     |
-| **env**          |                               | Environment variables for the Pi-hole container.                                                           |
+| Variable             | Default                       | Description                                                                                                |
+|:---------------------|:------------------------------|:-----------------------------------------------------------------------------------------------------------|
+| **pihole_dir**       | `/etc/docker/projects/pihole` | The directory where the docker compose file will be copied.                                                |
+| **pihole_name**      | `pihole`                      | The docker compose project name. Docker containers, volumes and networks will be prefixed with this value. |
+| **pihole_image**     | `pihole/pihole:v4.4`          | Pi-hole docker image. If changed the role may not work correctly.                                          |
+| **pihole_host_mode** | `false`                       | Whether to run the container with `network_mode=host`.                                                     |
+| **pihole_env**       |                               | Environment variables for the Pi-hole container.                                                           |
 
 ## Dependencies
 None.
@@ -27,8 +27,8 @@ None.
 - hosts: all
   roles:
     - role: acehko.pihole
-      host: true
-      env:
+      pihole_host_mode: true
+      pihole_env:
         TZ: Europe/Zagreb
         WEBPASSWORD: changeme
         DNS1: 1.1.1.1
