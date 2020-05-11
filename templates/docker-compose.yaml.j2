@@ -6,7 +6,7 @@ services:
   default:
     image: "{{ pihole_image }}"
     restart: unless-stopped
-    {% if host %}
+    {% if pihole_host_mode %}
     network_mode: host
     {% endif %}
     network_mode: host
