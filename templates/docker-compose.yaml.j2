@@ -8,13 +8,14 @@ services:
     restart: unless-stopped
     {% if pihole_host_mode %}
     network_mode: host
-    {% endif %}
+    {% else %}
     ports:
       - 53:53/tcp
       - 53:53/udp
       - 67:67/udp
       - 80:80/tcp
       - 443:443/tcp
+    {% endif %}
     {% if pihole_env is defined %}
     environment:
       {% for key, value in pihole_env.items() %}
