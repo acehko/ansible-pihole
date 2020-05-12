@@ -9,8 +9,23 @@ pihole_name: pihole
 # Pi-hole docker image. If changed the role may not work correctly.
 pihole_image: pihole/pihole:v4.4
 
-# Whether to run the container with network_mode=host.
-pihole_host_mode: false
+# Network mode in which the Pi-hole should run. Only host is supported.
+pihole_network_mode: host
 
-# Environment variables for the Pi-hole container.
-pihole_env:
+# Required. Pi-hole ip address.
+pihole_ip:
+
+# Hostname on which Pi-hole will be available.
+pihole_hostname: pi.hole
+
+# Pi-hole timezone.
+pihole_timezone: UTC
+
+# Password for the web interface.
+pihole_password: changeme
+
+# Primary upstream DNS server.
+pihole_dns1: 1.1.1.1
+
+# Secondary upstream DNS server.
+pihole_dns2: 1.0.0.1
