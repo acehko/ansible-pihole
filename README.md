@@ -4,7 +4,7 @@
 Ansible role for running Pi-hole on docker. Only `host` network is supported.
 
 ## Requirements
-> You can all of the requirements with the [acehko.docker](https://github.com/acehko/ansible-docker) role.
+> You can install all of the requirements with the [acehko.docker](https://github.com/acehko/ansible-docker) role.
 
 - Docker
 - Docker Compose
