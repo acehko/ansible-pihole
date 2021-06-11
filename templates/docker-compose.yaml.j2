@@ -12,14 +12,20 @@ services:
       VIRTUAL_HOST: {{ pihole_hostname }}
       TZ: {{ pihole_timezone }}
       WEBPASSWORD: {{ pihole_password }}
-      DNS1: {{ pihole_dns1 }}
-      DNS2: {{ pihole_dns2 }}
+      PIHOLE_DNS_: {{ pihole_dns.join(";") }}
+      DHCP_ACTIVE: "{{ pihole_dhcp | lower }}"
+      DHCP_START: {{ pihole_dhcp_start }}
+      DHCP_END: {{ pihole_dhcp_end }}
+      DHCP_ROUTER: {{ pihole_dhcp_gateway }}
+      DHCP_LEASETIME: {{ pihole_dhcp_leasetime }}
+      PIHOLE_DOMAIN: {{ pihole_dhcp_domain }}
+      DHCP_RAPID_COMMIT: "{{ pihole_dhcp_rapid_commit | lower }}"
     volumes:
       - default:/etc/pihole
       - dnsmasq:/etc/dnsmasq.d
     dns:
       - 127.0.0.1
-      - {{ pihole_dns1 }}
+      - {{ pihole_dns | first }}
     cap_add:
       - NET_ADMIN
 

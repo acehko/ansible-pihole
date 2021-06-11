@@ -24,8 +24,26 @@ pihole_timezone: UTC
 # Password for the web interface.
 pihole_password: changeme
 
-# Primary upstream DNS server.
-pihole_dns1: 1.1.1.1
+# Upstream DNS servers.
+pihole_dns:
+  - 1.1.1.1
+  - 1.0.0.1
 
-# Secondary upstream DNS server.
-pihole_dns2: 1.0.0.1
+# DHCP Enabled / disabled.
+pihole_dhcp: false
+
+# DHCP Start / end range.
+pihole_dhcp_start:
+pihole_dhcp_end:
+
+# DHCP gateway.
+pihole_dhcp_gateway:
+
+# DHCP lease time.
+pihole_dhcp_leasetime: 24
+
+# DHCP local domain name.
+pihole_dhcp_domain: lan
+
+# DHCP rapid commit.
+pihole_dhcp_rapid_commit: false
