@@ -23,9 +23,9 @@ Ansible role for running Pi-hole on docker. Only `host` network is supported.
 | **pihole_password**          | `changeme`                    | Password for the web interface.                                                                            |
 | **pihole_dns**               | `[1.1.1.1, 1.0.0.1]`          | Array of Upstream DNS servers.                                                                             |
 | **pihole_dhcp**              | `false`                       | Use Pi-hole as a DHCP server.                                                                              |
-| **pihole_dhcp_start**        |                               | **Required if DHCP enabled** Start of DHCP ip range.                                                       |
-| **pihole_dhcp_end**          |                               | **Required if DHCP enabled** End of DHCP ip range.                                                         |
-| **pihole_dhcp_gateway**      |                               | **Required if DHCP enabled** Gateway (router) ip sent by the DHCP server.                                  |
+| **pihole_dhcp_start**        |                               | **Required if DHCP enabled**. Start of DHCP ip range.                                                       |
+| **pihole_dhcp_end**          |                               | **Required if DHCP enabled**. End of DHCP ip range.                                                         |
+| **pihole_dhcp_gateway**      |                               | **Required if DHCP enabled**. Gateway (router) ip sent by the DHCP server.                                  |
 | **pihole_dhcp_leasetime**    | `24`                          | DHCP lease time in hours.                                                                                  |
 | **pihole_dhcp_domain**       | `lan`                         | Netowork domain name sent by the DHCP server.                                                              |
 | **pihole_dhcp_rapid_commit** | `false`                       | Enable DHCPv4 rapid commit.                                                                                |
