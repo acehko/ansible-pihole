@@ -12,7 +12,7 @@ Ansible role for running Pi-hole on docker. Only `host` network is supported.
 
 ## Variables
 | Variable                     | Default                       | Description                                                                                                |
-|:----==-----------------------|:------------------------------|:-----------------------------------------------------------------------------------------------------------|
+|:-----------------------------|:------------------------------|:-----------------------------------------------------------------------------------------------------------|
 | **pihole_dir**               | `/etc/docker/projects/pihole` | The directory where the docker compose file will be copied.                                                |
 | **pihole_name**              | `pihole`                      | The docker compose project name. Docker containers, volumes and networks will be prefixed with this value. |
 | **pihole_image**             | `pihole/pihole:v4.4`          | Pi-hole docker image. If changed the role may not work correctly.                                          |
@@ -21,7 +21,7 @@ Ansible role for running Pi-hole on docker. Only `host` network is supported.
 | **pihole_hostname**          | `pi.hole`                     | Hostname on which Pi-hole will be available.                                                               |
 | **pihole_timezone**          | `UTC`                         | Pi-hole timezone.                                                                                          |
 | **pihole_password**          | `changeme`                    | Password for the web interface.                                                                            |
-| **pihole_dns**               | `[1.1.1.1, 1.0.0.1]`          | Array of Upstream DNS servers.                                                                     |
+| **pihole_dns**               | `[1.1.1.1, 1.0.0.1]`          | Array of Upstream DNS servers.                                                                             |
 | **pihole_dhcp**              | `false`                       | Use Pi-hole as a DHCP server.                                                                              |
 | **pihole_dhcp_start**        |                               | **Required if DHCP enabled** Start of DHCP ip range.                                                       |
 | **pihole_dhcp_end**          |                               | **Required if DHCP enabled** End of DHCP ip range.                                                         |
