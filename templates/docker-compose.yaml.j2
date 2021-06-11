@@ -12,7 +12,7 @@ services:
       VIRTUAL_HOST: {{ pihole_hostname }}
       TZ: {{ pihole_timezone }}
       WEBPASSWORD: {{ pihole_password }}
-      PIHOLE_DNS_: {{ pihole_dns.join(";") }}
+      PIHOLE_DNS_: {{ pihole_dns | join(";") }}
       DHCP_ACTIVE: "{{ pihole_dhcp | lower }}"
       DHCP_START: {{ pihole_dhcp_start }}
       DHCP_END: {{ pihole_dhcp_end }}
